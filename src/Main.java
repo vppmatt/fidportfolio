@@ -32,11 +32,22 @@ public class Main {
 
         //current quantity of all stocks in portfolio
         HashMap<Stock, Integer> stockQuantities = new HashMap<>();
+        
         for (int i = 0; i < portfolio.size(); i++) {
             //which stock is in position i?
+            Order currentOrder = portfolio.get(i);
+            Stock currentStock = currentOrder.getStock();
+
             //what's the quantity of that stock?
+            Integer currentQuantity = currentOrder.getQuantity();
+
             //is it a sale or purchase
+            Boolean purchase = currentOrder.getOrderType() == OrderType.PURCHASE;
+
             //put the correct value into the hashmap
+            stockQuantities.put(currentStock, currentQuantity);
         }
+
+        System.out.println(stockQuantities);
     }
 }
