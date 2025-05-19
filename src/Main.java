@@ -11,5 +11,8 @@ public class Main {
         Stock apple = new Stock("Apple", "APPL");
 
         System.out.println(apple);
+
+        System.out.println(apple == microsoft); //not what we want
+        System.out.println(apple.equals(microsoft));
     }
 }
