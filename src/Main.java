@@ -51,14 +51,13 @@ public class Main {
                 //find out what the current value is
                 Integer currentValue = stockQuantities.get(currentStock); //100
 
+                Integer newValue = 0;
                 if (purchase) {
-                    Integer newValue = currentValue + currentQuantity;
-                    stockQuantities.put(currentStock, newValue);
+                     newValue = currentValue + currentQuantity;
                 } else {
-                    Integer newValue = currentValue - currentQuantity;
-                    stockQuantities.put(currentStock, newValue);
+                     newValue = currentValue - currentQuantity;
                 }
-
+                stockQuantities.put(currentStock, newValue);
 
             } else {
                 //if not put the value in
@@ -68,7 +67,6 @@ public class Main {
                 } else {
                     stockQuantities.put(currentStock, -currentQuantity);
                 }
-
 
             }
 
