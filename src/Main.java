@@ -1,6 +1,15 @@
+import domain.Stock;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello");
+
+        Stock microsoft = new Stock();
+        microsoft.setName("Microsoft");
+        microsoft.setTicker("MSFT");
+
+        Stock apple = new Stock("Apple", "APPL");
+
+        System.out.println(apple);
     }
 }
