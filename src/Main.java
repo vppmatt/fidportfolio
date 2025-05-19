@@ -32,20 +32,47 @@ public class Main {
 
         //current quantity of all stocks in portfolio
         HashMap<Stock, Integer> stockQuantities = new HashMap<>();
-        
+
         for (int i = 0; i < portfolio.size(); i++) {
             //which stock is in position i?
             Order currentOrder = portfolio.get(i);
             Stock currentStock = currentOrder.getStock();
 
             //what's the quantity of that stock?
-            Integer currentQuantity = currentOrder.getQuantity();
+            Integer currentQuantity = currentOrder.getQuantity(); //30
 
             //is it a sale or purchase
-            Boolean purchase = currentOrder.getOrderType() == OrderType.PURCHASE;
+            Boolean purchase = currentOrder.getOrderType() == OrderType.PURCHASE; //SALE
 
-            //put the correct value into the hashmap
-            stockQuantities.put(currentStock, currentQuantity);
+            //is there an existing entry for our hashmap for this stock?
+            if (stockQuantities.containsKey(currentStock)) {
+                //if so - update the value?
+
+                //find out what the current value is
+                Integer currentValue = stockQuantities.get(currentStock); //100
+
+                if (purchase) {
+                    Integer newValue = currentValue + currentQuantity;
+                    stockQuantities.put(currentStock, newValue);
+                } else {
+                    Integer newValue = currentValue - currentQuantity;
+                    stockQuantities.put(currentStock, newValue);
+                }
+
+
+            } else {
+                //if not put the value in
+
+                if(purchase) {
+                    stockQuantities.put(currentStock, currentQuantity);
+                } else {
+                    stockQuantities.put(currentStock, -currentQuantity);
+                }
+
+
+            }
+
+
         }
 
         System.out.println(stockQuantities);
