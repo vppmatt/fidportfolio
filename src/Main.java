@@ -5,6 +5,7 @@ import domain.Stock;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main {
 
@@ -27,5 +28,15 @@ public class Main {
         portfolio.add(new Order(apple, LocalDateTime.now(), OrderType.PURCHASE, new BigDecimal("200.74"),100));
         portfolio.add(new Order(apple, LocalDateTime.now(), OrderType.PURCHASE, new BigDecimal("195.33"),50));
 
+        System.out.println(portfolio);
+
+        //current quantity of all stocks in portfolio
+        HashMap<Stock, Integer> stockQuantities = new HashMap<>();
+        for (int i = 0; i < portfolio.size(); i++) {
+            //which stock is in position i?
+            //what's the quantity of that stock?
+            //is it a sale or purchase
+            //put the correct value into the hashmap
+        }
     }
 }
